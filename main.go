@@ -17,7 +17,7 @@ type Rtmp struct {
 }
 
 const ffmpegGetRtmp = "ffmpeg  -i {{.}} -vcodec libx264 -max_muxing_queue_size 1024 -movflags empty_moov+omit_tfhd_offset+frag_keyframe+default_base_moof -max_interleave_delta 0 -frag_duration 1 -b:v 1024k -c:a aac -f mp4 pipe:1 > mypipe"
-const mp4boxHLS = "gpac -i pipe://mypipe:ext=avc -o file.m3u8"
+const mp4boxHLS = "gpac -i pipe://mypipe:ext=.264 -o file.m3u8"
 
 func runMP4Box(stream Rtmp) {
 	for stream.Open {
