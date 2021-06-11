@@ -1,0 +1,2 @@
+ffmpeg -i govno.flv -max_muxing_queue_size 1024 -movflags frag_keyframe+empty_moov -max_interleave_delta 0 -b:v 1024k -c:a aac -f mp4 pipe:1 > mypipe
+gpac -i pipe://mypipe:ext=avc  -o file.m3u8
